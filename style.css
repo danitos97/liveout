@@ -1,0 +1,431 @@
+*{
+    margin: 0;
+    padding:0;
+    border:0;
+    box-sizing: border-box;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+  
+
+#portada{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #c83a38;
+}
+#portada > div{
+    text-align: center;
+}
+#portada #logo{
+    width: 100vw;
+    max-width: 600px;
+    margin-top: -75px;
+}
+#portada #btnIniciar{
+    display: inline-block;
+    background-color: black;
+    border: 3px double white;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+    padding-right: 8px;
+    letter-spacing: .3em;
+    font-family: sans-serif;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+#portada #btnIniciar > div:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: white;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    transform: skewX(-45deg);
+    background: linear-gradient(to right, white, white 20px, transparent 20px);
+    transform-origin: left bottom;
+    animation: shine 5s ease-in infinite;
+}
+@keyframes shine{
+    0%{
+        transform: skewX(-45deg) translate(-100%);
+    }
+    80%{
+        transform: skewX(-45deg) translate(-100%);
+    }
+    100%{
+        transform: skewX(-45deg) translate(100%);
+    }
+}
+
+
+
+
+nav, main,#div-mapa,#div-cuenta,#modal-mapa{
+    display: none;
+}
+
+
+
+main{
+    /* background-color:#942B29; */
+    background-color:seashell;
+    text-align: center;
+    height: calc(100vh - 67px);
+    overflow-y: scroll;
+    /* padding-bottom: 60px; */
+    scroll-snap-type: x mandatory;
+    color:white;
+}
+
+main > div{
+    width: 200vw;
+}
+main > div > section{
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: center;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    height: calc(100vh - 67px);
+    overflow: scroll;
+}
+main > div > section > div{
+    scroll-snap-align: start;
+    height: calc(100vh - 67px);
+    
+}
+
+main > div > section > div > *{
+    max-width: 550px;
+    margin:0 auto;
+}
+
+section#principal .contenedor-img{
+    width: 100%;
+}
+section#principal .contenedor-img img{
+    width: 100%;
+}
+section#principal .contenedor-datos{
+    
+    padding-top: 30px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    letter-spacing: .2em;
+}
+section#principal .contenedor-datos span:hover{
+    cursor: pointer;
+}
+section#principal .contenedor-datos span img{
+    padding-left: 15px;
+    padding-right: 5px;
+}
+section#principal .contenedor-datos span.liked{
+   color:#87cefa;
+}
+section#artista > div{
+    position: relative;
+    padding: 20px;
+    height: calc(100vh - 67px - 50px);
+    
+    color:black;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    
+}
+/* section#artista > div > *:not(#redes-sociales){
+    max-width: 300px;
+} */
+
+
+section#artista div.header > *{
+    display: inline-block;
+    vertical-align: middle;
+}
+section#artista #btn-regresar{
+    /* filter: brightness(0) invert(1); */
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+section#artista #nombre-artista{
+    width: calc(100% - 64px);
+    text-align: center;
+    padding: 0 5px;
+}
+section#artista #img-artista{
+    margin: 10px 0;
+    width: 70%;
+    max-width: 300px;
+} 
+
+section#artista .btn-seguir{
+    padding: 10px 15px;
+    border-radius: 12px;
+    background-color: blue;
+    display: inline-block;
+    font-size: 21px;
+    font-weight: bold;
+    color:white;
+}
+
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    width: 180px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+  transform: translatez(0);
+  font-size: 24px;
+	font-weight: normal;
+    box-shadow: 0 9px 18px rgba(0,0,0,0.2);
+    text-align: center;
+	border-radius: 30px;
+  padding: 10px 0px;
+  color: white;
+  transition: all 0.2s ease-out 0s;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.button.seguir span.siguiendo{
+    display: none;
+}
+.button.siguiendo span.seguir{
+    display: none;
+}
+.button.seguir {	
+  background: #c83a38;
+}
+.button.siguiendo{
+    background: #C7C74C;
+}
+.link{
+    text-decoration: underline;
+    color:black;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+section#artista #redes-sociales{
+    position: absolute;
+    width: calc(100% - 40px);
+    bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+}
+section#artista #redes-sociales img{
+    width: 100%;
+}
+
+
+@keyframes move {
+	0% {
+		transform: translatex(-100px);
+	}
+	25% {
+		transform: translatex(100px);
+		opacity: 0.3;
+	}
+	50% {
+		transform: translatex(100px);
+		opacity: 1;
+		background: radial-gradient(90px circle at bottom center, rgba(238,88,63,.5) 30%, rgba(255,255,255,0));
+	}
+	75% {
+		transform: translatex(-100px);
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+		transform: translatex(-100px);
+		background: radial-gradient(90px circle at top center, rgba(238,88,63,.5) 30%, rgba(255,255,255,0));
+	}
+}
+
+
+
+#div-mapa{
+    position: relative;
+    min-height: calc(100vh - 67px);
+    background-color: #86949a;
+    width: 100%;
+    overflow: auto;
+}
+#div-mapa > *{
+    position: absolute;
+    top:0;
+    left:0;
+}
+#div-mapa > img{
+    min-width: 100vw;
+}
+
+#puntos-mapa > div{
+    position:relative;
+    text-align: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+#puntos-mapa > div > div{
+    width: 140px;
+    background-color: white;
+    box-shadow: 5px 5px 5px #2225;
+    padding: 4px;
+    border-radius: 8px;
+    color:white;
+    background-color: #a55eea;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+#puntos-mapa > div > img{
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+#puntos-mapa  > div[id-punto = "1"]{
+    left:100px;
+    top:300px;
+}
+#puntos-mapa  > div[id-punto = "2"]{
+    left:315px;
+    top:-100px;
+}
+#puntos-mapa  > div[id-punto = "3"]{
+    left:500px;
+    top:250px;
+}
+#puntos-mapa  > div[id-punto = "4"]{
+    left:900px;
+    top:-20px;
+}
+
+#puntos-mapa  > div[id-punto = "5"]{
+    left:970px;
+    top:-400px;
+}
+
+#modal-mapa{
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    width: 300px;
+ height: 500px;
+ left:calc(50vw - 150px);
+ top:calc(50vh - 250px - 67px);
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 6px 1000px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 6px 1000px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 6px 1000px rgba(0,0,0,0.75);
+border-radius: 8px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+}
+#modal-mapa .modal-header > *{
+    display: inline-block;
+}
+#modal-mapa .modal-header > h2{
+    width: calc(100% - 25px);
+}
+#modal-mapa .modal-header > #cerrar-modal{
+    color: red;
+    font-weight: 900;
+    font-size: 25px;
+    cursor: pointer;
+    
+}
+#modal-mapa > img{
+    width: 150px;
+}
+.button.vas span.ir{
+    display: none;
+}
+.button.ir span.vas{
+    display: none;
+}
+.button.ir{
+    font-size: 19px;
+    background-color: #c83a38;
+}
+.button.vas{
+    font-size: 19px;
+    background-color: green;
+}
+
+
+#div-cuenta > div{
+    padding-top:30px;
+    text-align:  center;
+}
+
+#div-cuenta > div img{
+    width: 128px;
+}
+#div-cuenta #btn-inscribir{
+    width: 280px;
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+nav{
+    position: fixed;
+    bottom: 0;
+    padding: 8px 0;
+    background-color: black;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    width: 100%;
+    height: 67px;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    color:white;
+}
+nav > div > div{
+    display: inline-block;
+    padding: 0 4px;
+    cursor: pointer;
+}
+nav svg{
+    width: 29px;
+}
+nav #tende svg{
+    width: 19px;
+}
+nav span{
+    font-size: 11px;
+    font-family: sans-serif;
+}
+nav #cuenta svg{
+    width: 22px;
+}
+@media screen and (max-width:330px){
+    .button{
+        width: 150px;
+        padding: 5px;
+        font-size: 18px;
+    }
+    .link{
+        display: none;
+    }
+}
