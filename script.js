@@ -27,7 +27,7 @@ const btnIniciar = document.querySelector("#btnIniciar"),
 
     tam = Object.keys(canciones).length,
 
-    volumen = .7;
+    volumen = 1;
 
    
 
@@ -120,7 +120,7 @@ function llenarArragloAudios(){
     for(let i = 0; i < tam; i++){
         const song = canciones[i];
         const audio = new Audio(`artistas/${song.artista}/${song.nombre}.mp3`);
-        audio.volume = volumen;
+        audio.volume = song.volume;
 
         audio.play().then(function(){
             if(i !== orden[0])audio.pause();
