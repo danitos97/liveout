@@ -25,10 +25,7 @@ const btnIniciar = document.querySelector("#btnIniciar"),
     btnCerrarModal=document.getElementById("cerrar-modal"),
     btnIrEvento = document.getElementById("btn-ir-evento"),
 
-    tam = Object.keys(canciones).length,
-
-    volumen = 1;
-
+    tam = Object.keys(canciones).length;
    
 
 
@@ -120,8 +117,8 @@ function llenarArragloAudios(){
     for(let i = 0; i < tam; i++){
         const song = canciones[i];
         const audio = new Audio(`artistas/${song.artista}/${song.nombre}.mp3`);
-        audio.volume = song.volume;
-
+        audio.volume = song.volume * .5
+        console.log(song.volume)
         audio.play().then(function(){
             if(i !== orden[0])audio.pause();
             else {
